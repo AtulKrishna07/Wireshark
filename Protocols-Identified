@@ -1,0 +1,78 @@
+## 1. DNS (Domain Name System)
+Purpose: DNS translates domain names like google.com or play.google.com into IP addresses that computers use to communicate.
+
+Your Capture Shows:
+
+Multiple DNS standard queries for domains like beacons.gcp.gvt2.com, e2c56.gcp.gvt2.com, and play.google.com.
+
+Corresponding DNS responses with A (IPv4) and AAAA (IPv6) records.
+
+Port Used: UDP/53
+
+Importance: DNS is essential for internet browsing. It allows users to use domain names instead of memorizing IP addresses.
+
+## 2. HTTP (HyperText Transfer Protocol)
+
+Purpose: HTTP is the foundational protocol used for transferring web pages and other resources over the internet.
+
+Your Capture Shows:
+
+HTTP GET and HEAD requests to download .json and .exe files (e.g., driver update checks).
+
+Status codes like 301 Moved Permanently indicating redirection.
+
+Port Used: TCP/80
+
+Importance: HTTP facilitates communication between clients (browsers) and web servers, although it's plaintext and not secure (unlike HTTPS).
+
+## 3. TCP (Transmission Control Protocol)
+
+Purpose: TCP is a connection-oriented protocol that ensures reliable data delivery between two devices.
+
+Your Capture Shows:
+
+The TCP 3-way handshake: SYN → SYN-ACK → ACK
+
+TLSv1.2/1.3 traffic riding over TCP — showing secure web communications in progress.
+
+ACKs, FIN, and application data packets.
+
+Port Used: Varies (common: 443 for HTTPS, 80 for HTTP)
+
+Importance: TCP guarantees packet delivery in the correct order, critical for applications like web browsing, email, and secure communications.
+
+## 4. UDP (User Datagram Protocol)
+
+Purpose: UDP is a lightweight, connectionless transport protocol used for applications that require fast transmission (e.g., DNS queries, video streaming, online games).
+
+Key Observations:
+
+Source IP: 192.168.1.2 sending data to port 6667, a commonly known port used for IRC (Internet Relay Chat) or other services.
+
+Broadcast traffic is also visible (255.255.255.255), which is often used in device discovery or service announcements.
+
+UDP does not guarantee delivery or order — it's fast but unreliable by design.
+
+## 5. ICMPv6 (Internet Control Message Protocol v6)
+
+Purpose: ICMPv6 is used for diagnostic and control messages in IPv6 networks. It includes functions like ping (echo request/reply), router advertisement, neighbor discovery, and error reporting.
+
+Key Observations:
+
+Packet Too Big messages were observed, which indicate the MTU (Maximum Transmission Unit) is too small for certain packets — often a sign of Path MTU Discovery.
+
+Multiple neighbor solicitation/advertisement packets, typical of IPv6's address resolution mechanism.
+
+The use of ff02:: addresses suggests link-local multicast communication.
+
+## 6. QUIC (Quick UDP Internet Connections)
+
+Purpose: QUIC is a modern transport layer protocol developed by Google, designed to improve HTTP/3 performance. It runs over UDP and provides reliable, encrypted, and multiplexed connections.
+
+Key Observations:
+
+Port 443 indicates encrypted web traffic (HTTPS over QUIC).
+
+Several packets labeled Initial, Handshake, and Protected Payload — showing the secure session setup and data transfer.
+
+QUIC provides built-in encryption (like TLS) and faster handshakes compared to traditional TCP+TLS.
